@@ -5,7 +5,7 @@ interface InputFormProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
-  autoComplete?: string; // Tambahkan properti ini
+  autoComplete?: string;
 }
 
 export default function InputForm({
