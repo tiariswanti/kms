@@ -1,0 +1,49 @@
+import { useState } from "react";
+
+interface InputFormProps {
+  label: string;
+  type: string;
+  name: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  disabled?: boolean;
+  autoComplete?: string;
+  placeholder?: string;
+}
+
+export default function InputForm({
+  label,
+  type,
+  name,
+  value,
+  onChange,
+  disabled,
+  placeholder,
+}: InputFormProps) {
+  const [showWarning, setShowWarning] = useState(false);
+
+  const handleBlur = () => {
+    if (!value) {
+      setShowWarning(true);
+    } else {
+      setShowWarning(false);
+    }
+  };
+
+  return (
+    <div className="mb-4">
+      <label className="block text-sm font-medium text-gray-700">{label}</label>
+      <Input
+        type={type}
+        name={name}
+        value={value}
+        onChange={onChange}
+        disabled={disabled}
+        placeholder={placeholder}
+        required={true}
+        showWarning={showWarning}
+        onBlur={handleBlur}
+      />
+    </div>
+  );
+}
