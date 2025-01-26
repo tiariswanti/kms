@@ -44,7 +44,7 @@ export default function TopArticles() {
   }, [data]);
 
   if (error) {
-    return <p className="ml-6">Error loading top articles.</p>;
+    return <p className="">Error loading top articles.</p>;
   }
 
   if (!topArticles.length) {

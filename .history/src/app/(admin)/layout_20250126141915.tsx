@@ -36,7 +36,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       "/add-article": "Add Article",
     };
 
-    document.title = pageTitles[pathname];
+    document.title = pageTitles[pathname]; // Fallback to a default title
   }, [pathname]);
 
   if (loading) {

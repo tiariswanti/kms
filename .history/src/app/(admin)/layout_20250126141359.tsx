@@ -26,6 +26,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     checkToken();
   }, [router, pathname]);
 
+  // Set the page title based on the current pathname
   useEffect(() => {
     const pageTitles: { [key: string]: string } = {
       "/dashboard": "Dashboard",
@@ -34,9 +35,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       "/edit-article": "Edit Article",
       "/change-password": "Change Password",
       "/add-article": "Add Article",
+      // Add more paths and their respective titles here
     };
 
-    document.title = pageTitles[pathname];
+    document.title = pageTitles[pathname]; // Fallback to a default title
   }, [pathname]);
 
   if (loading) {
